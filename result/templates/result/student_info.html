@@ -1,0 +1,75 @@
+{% extends 'result/home.html'%}
+{% block body %}
+{% load staticfiles %}
+
+
+<center>
+    <center></center>
+    <form class="form-horizontal" action='' method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <div id="legend">
+                <legend class="">Register</legend>
+            </div>
+            <br>
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="name"></label>
+                <div class="controls">
+                    <input type="text" id="name" name="name" placeholder="username" class="input-xlarge">
+                </div>
+            </div>
+            <div class="control-group">
+
+                <label class="control-label" for="id"></label>
+                <div class="controls">
+                    <input type="text" id="rollno" name="rollno" placeholder="rollno" class="input-xlarge">
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <label class="control-label" for="branch"></label>
+                <div class="controls">
+                    <input type="text" id="branch" name="branch" placeholder="Branch" class="input-xlarge">
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <label class="control-label" for="bday"></label>
+                <div class="controls">
+                    <input type="date" id="bday" name="bday" placeholder="bday" class="input-xlarge">
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <label class="control-label" for="mobile"></label>
+                <div class="controls">
+                    <input type="text" pattern="[1-9]{1}[0-9]{9}" id="mobile" name="mobile" placeholder="Mobile"
+                           class="input-xlarge">
+                </div>
+            </div>
+            <div class="control-group">
+
+                <label class="control-label" for="address"></label>
+                <div class="controls">
+                    <input type="text" id="address" name="address" placeholder="Address" class="input-xlarge">
+                </div>
+            </div>
+            <br>
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</center>
+</body>
+</html>
+
+{% endblock %}

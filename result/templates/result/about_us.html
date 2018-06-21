@@ -1,0 +1,31 @@
+{% extends 'result/home.html'%}
+{% block body %}
+{% load staticfiles %}
+<title>{% block title %}About Us{% endblock %}</title>
+
+
+<img src="{%static 'result/images/aboutus.png'%}" alt="Result" width="100%" height="250"/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <img src="{%static 'result/images/aboutus1.jpg'%}" alt="Result" width="350" height="250"/>
+        </div>
+        <div class="col-md-6"><br>
+            <p style="font-family:new times roman">
+                The application will b manage the information abut various students<br>
+                enrlled in this course in different years, the subjects offered during<br>
+                different semesters of the course, the marks btained by the various <br>
+                students in various subjects in different semester.
+
+            </p>
+            <p style="font-family:new times roman">
+                The application will greatly simplify and speed up the result preparation<br>
+                and management process
+            </p>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%block body%}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'result/animate.css' %}"/>
+    <title>your Result</title>
+</head>
+<br>
+<body>
+<div class="container-fluid width:200%">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <p style="background-color:skyblue; width:120%;margin:0 0 20px; ">&nbsp;&nbsp;&nbsp;<img
+                    src="{%static 'result/images/btkit_logo.png'%}"
+                    alt="Result" width="150" height="100"/>
+            </p>
+        </div>
+        <div class="col-sm-6">
+
+            <h3 class="animated flip" style="background-color:skyblue; height:100px; width:173%; font-color:white;">
+                <marquee behavior="alternate">Bipin Tripathi
+                    Kumaon
+                    Institute of Technology
+                    (Dwarahat)
+                </marquee>
+            </h3>
+
+
+        </div>
+
+
+        <div class="container-flued">
+            <table class="table table-bordered table-responsive-sm">
+                <thead class="thead-dark">
+                {% for data in data%}
+                <tr>
+                    <th colspan="2">Student Information</th>
+                    <th colspan="6">
+                        <center>Theory Subject</center>
+                    </th>
+                    <th colspan="3">
+                        <center>Practical</center>
+                    </th>
+                    <th>Seminar</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                </tr>
+                </thead>
+                <th>Roll No</th>
+                <th>Student Name</th>
+
+                <th>{{data.sub1}}</th>
+
+                <th>{{data.sub2}}</th>
+                <th>{{data.sub3}}</th>
+                <th>{{data.sub4}}</th>
+                <th>{{data.sub5}}</th>
+                <th>{{data.sub6}}</th>
+                <th>{{data.sub7}}</th>
+                <th>{{data.sub8}}</th>
+                <th>{{data.sub9}}</th>
+                <th>Seminar Marks</th>
+                <th>Total Marks</th>
+                <th>Percentage</th>
+
+
+                <tr>
+
+
+                    <td>{{data.roll_no}}
+
+                    </td>
+                    <td>{{data.student_name}}</td>
+
+
+                    <td>{{data.marks}}</td>
+                    <td>{{data.marks2}}</td>
+                    <td>{{data.marks3}}</td>
+                    <td>{{data.marks4}}</td>
+                    <td>{{data.marks5}}</td>
+                    <td>{{data.marks6}}</td>
+                    <td>{{data.marks7}}</td>
+                    <td>{{data.marks8}}</td>
+                    <td>{{data.marks9}}</td>
+                    <td>{{data.seminar}}</td>
+                    <td>{{data.total}}</td>
+                    <td>{{data.percentage}}</td>
+
+
+                </tr>
+
+                {%endfor%}
+
+                <!--{% for data1 in data%}-->
+                <!--<p>{{data1.twc}}</p>-->
+                <!--{%endfor%}-->
+
+
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}

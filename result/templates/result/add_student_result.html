@@ -1,0 +1,420 @@
+{% extends 'result/home.html'%}
+{%load static%}
+{% block body%}
+<title>{% block title %}Add Result{% endblock %}</title>
+<script src="{%static 'result/total_marks.js'%}" type="text/javascript"></script>
+
+<style>
+hr{
+margin-top:3px;
+}
+select{
+width:100%;
+height:37px;
+border-radius:4px;
+border-color:lightgray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<script>
+    function foo(){
+
+    var sem = document.getElementById("semester");
+    var getvalue = sem.options[sem.selectedIndex].value;
+    if(getvalue == "I")
+    {
+     document.getElementById("sub1").value="MFCS";
+     document.getElementById("sub2").value="Principle of Financial a/c";
+     document.getElementById("sub3").value="Fundamental of Comp. & Digital Electronics";
+     document.getElementById("sub4").value="C Prgramming";
+     document.getElementById("sub5").value="Logic & its Application";
+     document.getElementById("sub6").value="Technical Writing & Communication";
+     document.getElementById("sub7").value="C Programming Lab";
+     document.getElementById("sub8").value="Communication Skill Lab";
+     document.getElementById("sub9").value="Digital Electronic Lab";
+
+
+    }
+    else if(getvalue == "II"){
+
+     document.getElementById("sub1").value="Ospm";
+     document.getElementById("sub2").value="Data Structure";
+     document.getElementById("sub3").value="Computer Organization ";
+     document.getElementById("sub4").value="CBNST";
+     document.getElementById("sub5").value="Operating System";
+     document.getElementById("sub6").value="Object Oriented Programming";
+     document.getElementById("sub7").value="Data Structure Lab";
+     document.getElementById("sub8").value="CBNST Lab";
+     document.getElementById("sub9").value="Object Oriented Lab";
+
+    }
+     else if(getvalue == "III"){
+
+     document.getElementById("sub1").value="Computer Network";
+     document.getElementById("sub2").value="ADA";
+     document.getElementById("sub3").value="E-Governance ";
+     document.getElementById("sub4").value="ERP";
+     document.getElementById("sub5").value="Graph Theory";
+     document.getElementById("sub6").value="DBMS";
+     document.getElementById("sub7").value="Computer Network Lab";
+     document.getElementById("sub8").value="ADA Lab";
+     document.getElementById("sub9").value="DBMS Lab";
+
+    }
+     else if(getvalue == "IV"){
+
+     document.getElementById("sub1").value=".Net Framework";
+     document.getElementById("sub2").value="Micrprocessor";
+     document.getElementById("sub3").value="Software Engineering ";
+     document.getElementById("sub4").value="Computer Graphics & Animation";
+     document.getElementById("sub5").value="Computer Architecture";
+     document.getElementById("sub6").value="Parellel Computing";
+     document.getElementById("sub7").value="Computer Graphic Lab";
+     document.getElementById("sub8").value="Microprocessor Lab";
+     document.getElementById("sub9").value=".Net Lab";
+
+    }
+     else if(getvalue == "V"){
+
+     document.getElementById("sub1").value="Advance Software Engineering";
+     document.getElementById("sub2").value="Web Technology";
+     document.getElementById("sub3").value="Business Communication";
+     document.getElementById("sub4").value="Cryptgraphy";
+     document.getElementById("sub5").value="Operation Research ";
+     document.getElementById("sub6").value="Advance Computer Architecture";
+     document.getElementById("sub7").value="ASE Lab";
+     document.getElementById("sub8").value="Web Technology Lab";
+     document.getElementById("sub9").value="Business Communication Lab";
+
+    }
+
+    }
+
+
+
+
+
+
+
+</script>
+<script>
+function confirm()
+{
+alert("Add New Result");
+}
+
+
+
+
+
+
+</script>
+<div class="container-fluid" style="background-color:#64677F;height:60px">
+    <div class="col-sm-4">
+        <h3 class="animated bounceInLeft" align="center" style="color:white;hight:40px;padding-top:10px">STUDENT
+            RESULT</h3>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div align="center">
+
+
+        <div class="card" style="width:900px">
+            <div class="bg-dark text-white card-header">ADD RESULT</div>
+            <div class="card-body">
+                <form id="sign_up" name="myform" method="post">
+                    {%csrf_token%}
+                    <p style="float:left"><b>Student Details</b></p>
+                    <br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Roll no</label>
+                                <br>
+
+
+                                <input id="roll_no" name="roll_no" class="form-control" type="number"
+                                       required placeholder="Student Roll no">
+
+
+                                <span id="error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label style="float:left;">Student Name</label>
+                                <br>
+
+                                <input id="student_name" name="student_name" class="form-control" type="text"
+                                       required placeholder="Student Name">
+
+
+                                <span id="error_lastname" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label style="float:left;">Select Curse</label>
+                                <br>
+                                <select name="course" required>
+                                    <option name="course"><-- Select Course --></option>
+                                    <option name="mca">MCA</option>
+                                    <option name="btech">BTECH</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label style="float:left;">Select branch</label>
+                                <br>
+                                <select name="branch" required>
+                                    <option name=""><-- Select Branch--></option>
+                                    <option name="mca">MCA</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label style="float:left;">Select Semester</label>
+                                <br>
+                                <select name="semester" id="semester" onchange="foo()" required>
+                                    <option name=""><-- Select Semester--></option>
+                                    <option name="mca">I</option>
+                                    <option name="mca">II</option>
+                                    <option name="mca">III</option>
+                                    <option name="mca">IV</option>
+                                    <option name="mca">V</option>
+                                    <option name="mca">VI</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="float:left"><b>Theory Subject</b></p>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Select First Subject</label>
+
+                                <br>
+                                <input type="text" name="sub1" id="sub1" style="width:410px;" readonly/>
+
+
+                                <input type="number" name="marks" id="marks" style="width:410px;"
+                                       placeholder="enter marks" required>
+                                <br>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Select Second Subject</label>
+
+                                <br>
+                                <input type="text" name="sub2" id="sub2" style="width:410px;" readonly/>
+
+                                <input type="number" name="marks2" id="marks2" style="width:410px;"
+                                       placeholder="enter marks" required>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Select Third Subject</label>
+
+                                <br>
+
+
+                                <input type="text" name="sub3" id="sub3" style="width:410px;" readonly/>
+                                <input type="number" name="marks3" id="marks3" style="width:410px;"
+                                       placeholder="enter marks" required>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Select Forth Subject</label>
+                                <br>
+
+                                <input type="text" name="sub4" id="sub4" style="width:410px;" readonly/>
+                                <input type="number" name="marks4" id="marks4" style="width:410px;"
+                                       placeholder="enter marks" required>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Select Fifth Subject</label>
+
+                                <input type="text" name="sub5" id="sub5" style="width:410px;" readonly/>
+                                <input type="number" name="marks5" id="marks5" style="width:410px;"
+                                       placeholder="enter marks" required>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Select Sixth Subject</label>
+                                <br>
+
+
+                                <input type="text" name="sub6" id="sub6" style="width:410px;" readonly/>
+                                <input type="number" name="marks6" id="marks6" style="width:410px;"
+                                       placeholder="enter marks" required>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <p style="float:left"><b>PRACTICALS</b></p>
+                    <br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Select First Practical</label>
+                                <br>
+
+
+                                <input type="text" name="sub7" id="sub7" style="width:410px;" readonly/>
+                                <input type="number" name="marks7" id="marks7" style="width:410px;"
+                                       placeholder="enter marks" required>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Communication Skill Lab</label>
+                                <br>
+
+                                <input type="text" name="sub8" id="sub8" style="width:410px;" readonly/>
+                                <input type="number" name="marks8" id="marks8" style="width:410px;"
+                                       placeholder="enter marks" required>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Select Third Practical </label>
+                                    <br>
+
+
+                                    <input type="text" name="sub9" id="sub9" style="width:410px;" readonly/>
+                                    <input type="number" name="marks9" id="marks9" style="width:410px;"
+                                           placeholder="enter marks" required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">
+                                <label style="float:left; padding:0 0 0 10px;">Seminar</label>
+
+                                <input type="number" id="seminar" name="seminar" value="number"
+                                       placeholder="enter marks"
+                                       style="width:410px;" onfocusout="total_marks()" required>
+
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            &nbsp;&nbsp;&nbsp;<div class="form-group">
+                            <label style="float:left;">Total Marks</label>
+
+                            <input type="number" id="total" name="total" value=""
+                                   placeholder="total marks"
+                                   style="width:100%;" required>
+                        </div>
+                        </div>
+                        <div class="col-sm-6">
+                            &nbsp;&nbsp;&nbsp;<div class="form-group">
+                            <label style="float:left;">Total Percentage</label>
+
+                            <input type="percentage" id="percentage" name="percentage" value=""
+                                   placeholder="percentage"
+                                   style="width:100%;" required>
+                        </div>
+                        </div>
+                    </div>
+
+                    <button id="submit" type="submit" value="submit" class="btn btn-dark" onclick="confirm()">Submit
+                    </button>
+                    <!--for messages print-->
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible {{message.tags}}">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>{{message}}</strong>
+
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                </form>
+
+            </div>
+            <div class="bg-dark text-white card-footer">
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+{%endblock%}

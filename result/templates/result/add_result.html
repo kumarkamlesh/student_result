@@ -1,0 +1,225 @@
+{% extends 'result/home.html'%}
+{%load static%}
+{% block body%}
+<title>{% block title %}Add Result{% endblock %}</title>
+
+<style>
+hr{
+margin-top:3px;
+}
+select{
+width:100%;
+height:37px;
+border-radius:4px;
+border-color:lightgray;
+}
+
+
+
+
+
+
+
+
+</style>
+
+<div class="container-fluid" style="background-color:#64677F;height:60px">
+    <div class="col-sm-4">
+        <h3 class="animated bounceInLeft" align="center" style="color:white;hight:40px;padding-top:10px">STUDENT
+            RESULT</h3>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div align="center">
+
+
+        <div class="card" style="width:900px">
+            <div class="bg-dark text-white card-header">ADD RESULT</div>
+            <div class="card-body">
+                <form id="sign_up" name="myform" method="post">
+                    {%csrf_token%}
+                    <p style="float:left"><b>Student Details</b></p>
+                    <br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Roll no</label>
+                                <br>
+
+
+                                <input id="rollno" name="rollno" class="form-control" type="number"
+                                       data-validation="required" placeholder="Student Roll no">
+
+
+                                <span id="error" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label style="float:left;">Student Name</label>
+                                <br>
+
+                                <input id="sname" name="sname" class="form-control" type="text"
+                                       data-validation="required" placeholder="Student Name">
+
+
+                                <span id="error_lastname" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p style="float:left"><b>Theory Subject</b></p>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">MFCS</label>
+
+                                <br>
+
+
+                                <input type="number" id="number" name="number" value="number" placeholder="enter marks"
+                                       style="width:410px;">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Principal of Financial Accounting</label>
+
+                                <br>
+
+
+                                <input type="number" id="number1" name="number1" value="number"
+                                       placeholder="enter marks"
+                                       style="width:410px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Fundamental of Computer & Digital Electronics</label>
+
+                                <br>
+
+                                <input type="number" id="number2" name="number2" value="number"
+                                       placeholder="enter marks"
+                                       style="width:410px;">
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">C Programming</label>
+                                <br>
+                                <input type="number" id="number3" name="number3" value="number"
+                                       placeholder="enter marks"
+                                       style="width:410px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Logic & its Applications</label>
+                                <input type="number" id="number4" name="number4" value="number"
+                                       placeholder="enter marks"
+                                       style="width:410px;">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Technical Writing & Communication</label>
+                                <br>
+
+                                <input type="number" id="number5" name="number5" value="number"
+                                       placeholder="enter marks"
+                                       style="width:410px;">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <p style="float:left"><b>PRACTICALS</b></p>
+                    <br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">C Programming Lab</label>
+                                <br>
+
+                                <input type="number" id="lab1" name="number4" value="number" placeholder="enter marks"
+                                       style="width:410px;">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="float:left;">Communication Skill Lab</label>
+                                <br>
+                                <input type="number" id="lab2" name="number4" value="number"
+                                       placeholder="enter marks"
+                                       style="width:410px;">
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Digital Electronics Lab</label>
+                                    <br>
+
+                                    <input type="number" id="lab3" name="number4" value="number"
+                                           placeholder="enter marks"
+                                           style="width:410px;">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<div class="form-group">
+                            <label style="float:left; padding:0 0 0 10px;">Seminar</label>
+
+                            <input type="number" id="seminar" name="seminar" value="number"
+                                   placeholder="enter marks"
+                                   style="width:410px;">
+
+                        </div>
+
+                        </div>
+                    </div>
+                    <br>
+                    <button id="submit" type="submit" value="submit" class="btn btn-dark">Submit
+                    </button>
+
+                </form>
+            </div>
+            <div class="bg-dark text-white card-footer">
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,68 @@
+{% extends 'result/home.html'%}
+{% block body %}
+{% load staticfiles %}
+<title>{% block title %}Contact Us{% endblock %}</title>
+
+<br><br>
+<div class="container" style="background-color:skyblue">
+    <div class="box">
+        <div class="row">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">
+                    Student <strong>Result Management System</strong>
+                </h2>
+            </div>
+            <div class="col-md-8">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30712076.447456647!2d64.42063582445239!3d20.007139322543637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1523081785588"
+                        width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-md-4">
+                <p style="font-family:new times roman">Name- Kamlesh kumar</p>
+                <p style="font-family:new times rman"> Email-kamleshkumarbca92@gmail.com</p>
+                <p style="font-family:new times roman">Cntact no. 8171710479</p>
+                <img src="{%static 'result/images/image10.jpg'%}" alt="Result" width="300" height="250"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="box">
+        <div class="row">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center"><strong>Contact Form</strong></h2>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>Contact No.</label>
+                        <input type="tel" name="contact_num" class="form-control">
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Message</label>
+                        <textarea class="form-control" row="6"></textarea>
+
+                        <div class="form-control" col-lg-12>
+                            <input type="hidden" name="messaged" value="">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{%endblock%}

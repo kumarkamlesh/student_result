@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'result/first_sem_result_table.html'%}
+    {%load static%}
+    {% block body%}
+
+    <title>Second sem</title>
+</head>
+<body>
+
+<h2 style="text-align:center;"> Your result</h2>
+<div class="container-flued">
+    <table class="table table-bordered table-responsive-sm">
+        <thead class="thead-dark">
+        <tr>
+            <th colspan="2" class="text-success">Student Information</th>
+            <th colspan="6" class="text-success">
+                <center>Theory Subject</center>
+            </th>
+            <th colspan="3" class="text-success">
+                <center>Practical</center>
+            </th>
+            <th class="text-success">
+                <center>Seminar</center>
+            </th>
+
+            <th class="text-success">Total</th>
+        </tr>
+        </thead>
+        <th class="bg-success">Roll No</th>
+        <th class="bg-warning">Student Name</th>
+
+        <th class="bg-primary">Computer Network</th>
+        <th class="bg-success">ADA</th>
+        <th class="bg-warning">E-Governance</th>
+        <th class="bg-primary">ERP</th>
+        <th class="bg-success">Graph Theory</th>
+        <th class="bg-warning">DBMS</th>
+        <th class="bg-primary">Computer Network Lab</th>
+        <th class="bg-success">ADA Lab</th>
+        <th class="bg-warning">DBMS Lab</th>
+        <th class="bg-warning">Seminar Marks</th>
+        <th class="bg-primary">Total Marks</th>
+    </table>
+</div>
+</body>
+</html>
+{% endblock %}

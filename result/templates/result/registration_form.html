@@ -1,0 +1,166 @@
+{% extends 'result/home.html'%}
+{%load static%}
+{% block body%}
+<title>{% block title %}Registration{% endblock %}</title>
+
+<div class="jumbotron">
+    <div class="container">
+        <div align="center">
+            <div class="card" style="width:900px">
+                <div class="bg-dark text-white card-header">USER REGISTRATION</div>
+                <div class="card-body">
+                    <form method="post">
+                        {%csrf_token%}
+                        <p style="float:left"><b>FILL THE DETAILS TO REGISTER</b></p>
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Username</label>
+                                    <br>
+                                    <input id="username" name="username" class="form-control" type="text"
+                                           required placeholder="enter username">
+                                    <span id="error" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">First Name</label>
+                                    <br>
+                                    <input type="text" id="firstname" name="firstname" value=""
+                                           placeholder="enter firstname"
+                                           style="width:410px;" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Last Name</label>
+                                    <br>
+                                    <input type="text" id="lastname" name="lastname" value=""
+                                           placeholder="enter last name"
+                                           style="width:410px;" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Email</label>
+
+                                    <br>
+
+                                    <input type="email" id="email" name="email" value=""
+                                           placeholder="enter email"
+                                           style="width:410px;" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Password</label>
+                                    <input type="password" id="password" name="password" value=""
+                                           placeholder="enter password"
+                                           style="width:410px;" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Confirm Password</label>
+                                    <br>
+
+                                    <input type="password" id="conf_password" name="conf_password" value=""
+                                           placeholder="confirm password"
+                                           style="width:410px;" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label style="float:left;">Date of Birth</label>
+                                    <br>
+                                    <input type="date" id="dob" name="dob" value=""
+                                           placeholder="date of birth"
+                                           style="width:410px;" required>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                &nbsp;&nbsp;&nbsp;<div class="col-sm-6">
+                                <div class="form-group" style="float:left;"><br>
+                                    <label style="float:left;">Mobile Number</label>
+
+                                    <br>
+                                    <input type="text" maxlength="10" pattern="[1-9]{1}[0-9]{9}" id="mobile"
+                                           name="mobile"
+                                           placeholder="enter mbile number"
+                                           style="width:410px;" required>
+                                </div>
+
+                            </div>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<div class="col-sm-6">
+                            &nbsp;&nbsp;&nbsp;<div class="form-group">
+                            <label style="float:left; padding:0 0 0 10px;">Address</label>
+
+                            <input type="text" id="address" name="address" value=""
+                                   placeholder="enter address"
+                                   style="width:410px; margin:0 0 40px;" required>
+
+                            <button id="submit" type="submit" value="submit" class="btn btn-dark">Submit</button>
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible {{message.tags}}">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{message}}</strong>
+
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="bg-dark text-white card-footer">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script>
+                        $(function () {
+        $("#submit").click(function () {
+
+            var password = $("#password").val();
+            var confirmPassword = $("#conf_password").val();
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+             return false;
+            }
+            return true;
+        });
+    });
+
+
+
+
+
+
+
+
+</script>
+{%endblock%}

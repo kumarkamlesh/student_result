@@ -1,0 +1,215 @@
+{% extends 'result/home.html'%}
+{%load static%}
+{% block body%}
+{% block title %}{% endblock %}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<style>
+hr{
+margin-top:3px;
+}
+select{
+width:100%;
+height:37px;
+border-radius:4px;
+border-color:lightgray;
+}
+
+
+
+
+
+
+
+</style>
+
+<script>
+        function populate(s1,s2,s3){
+
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+        var s3 = document.getElementById(s3);
+        s2.innerHTML="";
+        s3.innerHTML="";
+        if(s1.value == "MCA"){
+        var optionArray = ["|","mca|MCA"];
+        }
+         if(s1.value == "BTECH"){
+        var optionArray = ["|", "cse|CSE", "me|ME", "che|CHE", "civil|Civil", "ece|ECE"];
+        }
+        for(var option in optionArray){
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        s2.options.add(newOption);
+        }
+        if(s1.value == "MCA"){
+        var optionArray = ["|", "sem1|Sem1", "sem2|Sem2", "sem3|Sem3", "sem4|Sem4", "sem5|Sem5","sem6|Sem6"];
+        }
+        if(s1.value == "BTECH"){
+        var optionArray = ["|", "semester1|Semester1", "semester2|Semester2", "semester3|Semester3", "semester4|Semester4", "semester5|Semester5","semester6|Semester6","semester7|Semester7","semester8|Semester8"];
+        }
+        for(var option in optionArray){
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        s3.options.add(newOption);
+        }
+
+        }
+
+
+
+
+
+
+
+</script>
+<script>
+    function on()
+    {
+        alert("continue");
+    }
+
+
+
+
+
+
+</script>
+
+<!--<script>-->
+
+<!--&lt;!&ndash;function getValue(){&ndash;&gt;-->
+
+<!--&lt;!&ndash;var getvalue = document.getElementById("select3").value;&ndash;&gt;-->
+<!--&lt;!&ndash;alert("Do you want to add new result");&ndash;&gt;-->
+<!--&lt;!&ndash;if(getvalue=='sem1'){&ndash;&gt;-->
+
+<!--&lt;!&ndash;window.open('http://127.0.0.1:8000/result/mca_1st_sem');&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;else if(getvalue=='sem2'){&ndash;&gt;-->
+<!--&lt;!&ndash;window.open('http://127.0.0.1:8000/result/semester_2');&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;else if(getvalue=='sem3'){&ndash;&gt;-->
+<!--&lt;!&ndash;window.open('http://127.0.0.1:8000/result/semester_3');&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;else if(getvalue=='sem4'){&ndash;&gt;-->
+<!--&lt;!&ndash;window.open('http://127.0.0.1:8000/result/semester_4');&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;else if(getvalue=='sem5'){&ndash;&gt;-->
+<!--&lt;!&ndash;window.open('http://127.0.0.1:8000/result/semester_5');&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--</script>-->
+<form method="post">
+    {% csrf_token%}
+    <div class="container-fluid" style="background-color:#64677F;height:60px">
+        <div class="col-sm-4">
+            <h3 class="animated bounceInLeft" align="center" style="color:white;hight:40px;padding-top:10px">STUDENT
+                RESULT</h3>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    Select Course
+    <select id="select1" name="Course" onchange="populate(this.id,'select2','select3')">
+        <option value="">Select Course</option>
+        <option value="MCA">MCA</option>
+        <option value="BTECH">BTECH</option>
+    </select>
+    <hr>
+    Select Branch
+    <select id="select2" name="Branch">
+        <option>Select Branch</option>
+    </select>
+    <hr>
+
+    Select Sem
+    <select id="select3" name="Semester">
+        <option>Select Sem</option>
+    </select>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label style="float:left;">Roll no</label>
+                <br>
+                <input id="rollno" name="rollno" class="form-control" type="number"
+                       required placeholder="Student Roll no">
+                <span id="error" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+            <div class="form-group">
+                <label style="float:left;">Student Name</label>
+                <br>
+
+                <input type="text" id="student_name" name="student_name" class="form-control"
+                       required placeholder="Student Name">
+
+
+                <span id="error_lastname" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <input type="submit" value="submit" onclick="on()">
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible {{message.tags}}">
+        <a href="#" class="close" data-dimiss="alert" aria-label="close">x</a>
+        <strong>{{message}}</strong>
+
+    </div>
+    {% endfor %}
+    {% endif %}
+
+</form>
+
+<footer style="background-color:black;">
+    <div class="row">
+        <div class="col-sm-3">
+            <p style="color:white;font-size:12px;padding-top:5px;padding-left:5px;">Major Project:MCA © 2018 All Rights
+                Reserved.
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <ul style="list-style-type:none">
+                <li style="float:left;padding-top:7px">
+                    <p style="color:white;font-size:12px">Follow me on:</p>
+                </li>
+                <li style="float:left">
+                    <a href="https://www.facebook.com/"> <img src="{% static 'result/images/fb1.png' %}"
+                                                              style="hight:27px;width:27px;padding-top:5px;padding-left:5px"></a>
+
+                </li>
+                <li style="float:left">
+                    <a href="https://twitter.com/"> <img src="{% static 'result/images/twitter.png' %}"
+                                                         style="hight:27px;width:27px;padding-top:5px;padding-left:5px"></a>
+
+                </li>
+                <li style="float:left">
+                    <a href="https://www.linkedin.com/in/"><img src="{% static 'result/images/linkedin.png' %}"
+                                                                style="hight:27px;width:27px;padding-top:5px;padding-left:5px"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+{%endblock%}

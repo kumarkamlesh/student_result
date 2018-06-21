@@ -1,0 +1,72 @@
+{% extends 'result/home.html'%}
+{% block body %}
+{% load staticfiles %}
+<div class="container">
+    <h3>Branch</h3>
+    <select>
+        <option>MCA</option>
+        <option>Btech</option>
+        <option>Mtech</option>
+        <option>MBA</option>
+        <option>BCA</option>
+    </select>
+    <br>
+    <br>
+    <form class="form-inline my-2 my-lg-0"><br><br>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Latest Post</h4>
+                    </div>
+                    <table class="table table-striped">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>#</th>
+                            <th>title</th>
+                            <th>category</th>
+                            <th>date post</th>
+                            <th></th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>post one</td>
+                            <td>web deve</td>
+                            <td>apr 8 2017</td>
+                            <td><a href="#" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i>Detail
+                            </a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>post one</td>
+                            <td>web deve</td>
+                            <td>apr 7 2017</td>
+                            <td><a href="#" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i>Detail
+                            </a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>post one</td>
+                            <td>web deve</td>
+                            <td>apr 6 2017</td>
+                            <td><a href="#" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i>Detail
+                            </a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+
+            {% endblock %}

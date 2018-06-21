@@ -1,0 +1,257 @@
+{% load static %}
+
+<!--<link rel="stylesheet" type="text/css" href="{% static 'homepage/homepage.css' %}"/>-->
+<link rel="stylesheet" type="text/css" href="{% static 'result/animate.css' %}"/>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title%}Home Page{%endblock%}</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><p class="animated bounceInUp"><img src="{%static 'result/images/icon.png'%}"
+                                                                         style="width:30px"/></p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'homeurl:home'%}"><p class="animated bounceInRight">Home</p> <span
+                        class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'homeurl:about_us'%}"><p class="animated bounceInRight">About us</p></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#"></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'homeurl:contact_us'%}">Contact us</a>
+            </li>
+
+        </ul>
+
+
+        <!--<form class="form-inline my-2 my-lg-0">-->
+        <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+        <!--</form>-->
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                Login
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{%url 'homeurl:user_login_form'%}">User</a>
+                <a class="dropdown-item" href="{%url 'homeurl:admin_login_form'%}">Admin</a>
+
+            </div>
+        </li>
+
+    </ul>
+
+
+</nav>
+
+{%block body%}
+
+<div>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{%static 'result/images/image1.jpg'%}"
+                     alt="My image" width="100%" height="400"
+                />
+                <div class="carousel-caption">
+                    <h3>STUDENT RESULT MANAGEMENT SYSTEM</h3>
+                    <p class="sansserif" style="color:gray;">A Complete Solution for Student Result Management </p>
+                    <a href="">
+                        <button type="button" class="btn">Read More</button>
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{%static 'result/images/result5.png'%}"
+                     alt="My image" width="100%" height="400"
+                />
+                <div class="carousel-caption">
+                    <h3 style="color:gray;">STUDENT RESULT MANAGEMENT SYSTEM</h3>
+                    <p style="color:gray;">A Complete Solution for Student Result Management</p>
+                    <a href="#">
+                        <button type="button" class="btn">Read More</button>
+                    </a>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{%static 'result/images/result4.png'%}"
+                     alt="My image" width="100%" height="400"
+                />
+                <div class="carousel-caption">
+                    <h3 style="color:gray;">STUDENT RESULT MANAGEMENT SYSTEM</h3>
+                    <p style="color:white;">A Complete Solution for Student Result Management</p>
+                    <a href="#">
+                        <button type="button" class="btn">Read More</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+
+<div class="conatainer">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card w-80 h-40" style="width:18rem;">
+
+
+                    <img src="{%static 'result/images/image8.jpg'%}" alt="Result" width="250" height="150"/>
+
+                    <div class="card-body">
+                        <h5 style="font-size:17px" class="card-title">Management system</h5>
+                        <p class="card-text" style="font-size:12px">
+                            this is the online result management system
+                        </p>
+
+                        <a href="{%url 'homeurl:read'%}" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card w-80 h-40" style="width:18rem;">
+                    <img src="{%static 'result/images/image9.jpg'%}" alt="Result" width="250" height="150"/>
+                    <div class="card-body">
+                        <h5 style="font-size:17px" class="card-title">Management system</h5>
+                        <p class="card-text" style="font-size:12px">
+                            this is the online result management system
+                        </p>
+
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card w-80 h-40" style="width:18rem;">
+                    <img src="{%static 'result/images/image10.jpg'%}" alt="Result" width="250" height="150"/>
+                    <div class="card-body">
+                        <h5 style="font-size:17px" class="card-title">Management system</h5>
+                        <p class="card-text" style="font-size:12px">
+                            this is the online result management system
+                        </p>
+
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!--this is a footer-->
+<footer>
+    <div class="row">
+        <div class="col-sm-6" style="background-color:skyblue">
+            <b class="animated bounceInLeft" style="font-size:18px;color:gray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTACT
+                INFO:</b>&nbsp;
+            <p class="animated bounceInLeft" style="font-size:14px;color:gray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                    src="{% static 'result/images/add1.png' %}">&nbsp;Address:New Ashok Nagar,Delhi</p>
+            <p class="animated bounceInLeft" style="font-size:14px;color:gray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                    src="{% static 'result/images/city.png' %}">&nbsp;Main City:Delhi</p>
+            <p class="animated bounceInLeft" style="font-size:14px;color:gray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                    src="{% static 'result/images/mobile.png' %}">&nbsp;Mobile No:8171710479</p>
+            <p class="animated bounceInLeft" style="font-size:14px;color:gray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                    src="{% static 'result/images/phon.png' %}">&nbsp;Phon No:0122-2362458</p>
+            <p class="animated bounceInLeft" style="font-size:14px;color:gray;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                    src="{% static 'result/images/email3.png' %}">&nbsp;Email: <a style="color:gray"
+                                                                                  href="mailto:deegariya007@gmail.com">kamleshkumarbca92@gmail.com</a>
+            </p>
+        </div>
+        <div class="col-sm-6" style="background-color:skyblue;>
+            <p class=" animated bounceInLeft
+        " style="font-size:14px;color:gray;">It help us to find <strong>RESULT</strong>easily</p>
+
+        <img src="{%static 'result/images/image10.jpg'%}" class="animated bounceInRight" alt="Result" width="300"
+             height="178"/>
+
+
+    </div>
+    </div>
+
+</footer>
+<footer style="background-color:black;">
+    <div class="row">
+        <div class="col-sm-3">
+            <p style="color:white;font-size:12px;padding-top:5px;padding-left:5px;">Major Project:MCA © 2018 All Rights
+                Reserved.
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <ul style="list-style-type:none">
+                <li style="float:left;padding-top:7px">
+                    <p style="color:white;font-size:12px">Follow me on:</p>
+                </li>
+                <li style="float:left">
+                    <a href="https://www.facebook.com/"> <img src="{% static 'result/images/fb1.png' %}"
+                                                              style="hight:27px;width:27px;padding-top:5px;padding-left:5px"></a>
+
+                </li>
+                <li style="float:left">
+                    <a href="https://twitter.com/"> <img src="{% static 'result/images/twitter.png' %}"
+                                                         style="hight:27px;width:27px;padding-top:5px;padding-left:5px"></a>
+
+                </li>
+                <li style="float:left">
+                    <a href="https://www.linkedin.com/in/"><img src="{% static 'result/images/linkedin.png' %}"
+                                                                style="hight:27px;width:27px;padding-top:5px;padding-left:5px"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+{% endblock %}
